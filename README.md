@@ -18,7 +18,7 @@ O Skina é um aplicativo desenvolvido com Django para gerenciar listas de compra
 
 - **Django:** Framework web principal.
 - **SQLite (ou outro banco de dados de sua escolha):** Para armazenamento dos dados.
-- **HTML, CSS e JavaScript:** Para desenvolvimento da interface do usuário.
+- **REST Framewor:** Para desenvolvimento da interface de API.
 
 ---
 
@@ -28,7 +28,7 @@ Antes de começar, certifique-se de que você tem o seguinte instalado em sua m�
 
 - Python 3.8+
 - Pip (Python package installer)
-- Virtualenv (opcional, mas recomendado)
+- Virtualenv
 
 ---
 
@@ -38,4 +38,41 @@ Antes de começar, certifique-se de que você tem o seguinte instalado em sua m�
    ```bash
    git clone https://github.com/seu-usuario/skina.git
    cd skina
+   ```
+2. Crie e ative um ambiente virtual (opcional):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate # Para sistemas Unix
+   venv\Scripts\activate # Para Windows
+   ```
+3. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Aplique as migrações:
+   ```bash
+   python manage.py migrate
+   ```
+5. Inicie o servidor de desenvolvimento:
+   ```bash
+   python manage.py runserver
+   ```
+6. Acesse o aplicativo no navegador em:
+   http://localhost:8000
+
+---
+
+## Estrutura de pastas
+   ```
+   skina/
+├── manage.py
+├── skina/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+├── lista_compras/  # Aplicação principal
+│   ├── models.py
+│   ├── views.py
+│   ├── templates/
+│   └── static/
    ```
