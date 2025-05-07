@@ -70,20 +70,11 @@ class Lista_Produtos(models.Model):
 
 
 
-
-
-
-
-
 class Categoria_Produto(models.Model):
     cod_cat = models.ForeignKey(Categoria, on_delete=models.CASCADE, db_column="cod_cat")
     cod_prod = models.ForeignKey(Produtos, on_delete=models.CASCADE, db_column="cod_prod")
-    nome = models.CharField(max_length=100)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=["cod_cat", "cod_prod"], name="Categoria_Produto_CompositePrimaryKey")
         ]
-    
-    def __str__(self):
-        return self.nome 
