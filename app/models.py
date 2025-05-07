@@ -1,12 +1,21 @@
 from django.db import models
+import hashlib
 
 
 class Categoria(models.Model):
     cod_cat = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=100)
+    hash_value = models.CharField(max_length=64, editable=False, blank=True)
+
+    def save(self, *args, **kwargs):
+        # Generate a hash based on the 'name' and 'email' fields
+        hash_input = f"{self.cod_cat}{self.nome}".encode('utf-8')
+        self.hash_value = hashlib.sha256(hash_input).hexdigest()
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.nome 
+        return f"{self.nome} - {self.hash_value}"
+
 
 
 class Produtos(models.Model):
