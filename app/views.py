@@ -9,27 +9,27 @@ def home(request):
     return HttpResponse("<h1> OF THE KING OF THE POWER</h1>")
 
 
-class CategoriaViewSet(viewsets.ModelViewSet):
+class CategoriaViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
 
-class ProdutosViewSet(viewsets.ModelViewSet):
+class ProdutosViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Produtos.objects.all()
     serializer_class = ProdutosSerializer
 
 
-class ListaViewSet(viewsets.ModelViewSet):
+class ListaViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Lista.objects.all()
     serializer_class = ListaSerializer
 
 
-class Categoria_ProdutoViewSet(viewsets.ModelViewSet):
+class Categoria_ProdutoViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Categoria_Produto.objects.all()
     serializer_class = Categoria_ProdutoSerializer
 
 
-class Lista_ProdutosViewSet(viewsets.ModelViewSet):
+class Lista_ProdutosViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Lista_Produtos.objects.all()
     serializer_class = Lista_ProdutosSerializer
 
