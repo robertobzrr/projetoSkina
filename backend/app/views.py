@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from rest_framework import viewsets # type: ignore
+from rest_framework import viewsets
 from .models import Categoria, Produtos, Lista, Categoria_Produto, Lista_Produtos
 from .serializers import CategoriaSerializer, ProdutosSerializer, ListaSerializer, Categoria_ProdutoSerializer, Lista_ProdutosSerializer
 from django.http import HttpResponse
+from django_filters import rest_framework as filters
+from django_filters.rest_framework import DjangoFilterBackend
+from .filters import CategoriaFilter
 
 
 def home(request):
@@ -12,6 +15,11 @@ def home(request):
 class CategoriaViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = CategoriaFilter
+
+
+
 
 
 class ProdutosViewSet(viewsets.ReadOnlyModelViewSet):
