@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets # type: ignore
 from .models import Categoria, Produtos, Lista, Categoria_Produto, Lista_Produtos
 from .serializers import CategoriaSerializer, ProdutosSerializer, ListaSerializer, Categoria_ProdutoSerializer, Lista_ProdutosSerializer
 from django.http import HttpResponse
