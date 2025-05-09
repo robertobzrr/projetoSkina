@@ -59,11 +59,16 @@ class Lista(models.Model):
 class Lista_Produtos(models.Model):
     cod_prod = models.ForeignKey(Produtos, on_delete=models.CASCADE, db_column="cod_prod")
     cod_list = models.ForeignKey(Lista, on_delete=models.CASCADE, db_column="cod_list")
+    nome = models.CharField(max_length=100, blank=True)
+
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=["cod_prod", "cod_list"], name="Lista_Produtos_CompositePrimaryKey")
         ]
+ 
+        
+
         
 
 
@@ -73,6 +78,7 @@ class Lista_Produtos(models.Model):
 class Categoria_Produto(models.Model):
     cod_cat = models.ForeignKey(Categoria, on_delete=models.CASCADE, db_column="cod_cat")
     cod_prod = models.ForeignKey(Produtos, on_delete=models.CASCADE, db_column="cod_prod")
+    nome = models.CharField(max_length=100, blank=True)
 
     class Meta:
         constraints = [
