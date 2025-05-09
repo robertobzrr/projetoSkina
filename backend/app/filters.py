@@ -37,7 +37,7 @@ class Lista_ProdutosFilter(filters.FilterSet):
 
     class Meta:
         model = Lista_Produtos
-        fields = ['cod_prod', 'cod_list']
+        fields = ['nome', 'cod_prod', 'cod_list']
 
 
 
@@ -47,4 +47,4 @@ class Categoria_ProdutoFilter(filters.FilterSet):
 
     class Meta:
         model = Categoria_Produto
-        fields = ['cod_cat', 'cod_prod']
+        fields = ['nome', 'cod_cat', 'cod_prod']
