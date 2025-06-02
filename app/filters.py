@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from .models import Categoria, Produtos, Lista, Lista_Produtos, Categoria_Produto
+from .models import Categoria, Produto, Categoria_Produto
 
 
 class CategoriaFilter(filters.FilterSet):
@@ -11,34 +11,12 @@ class CategoriaFilter(filters.FilterSet):
 
 
 
-
-class ProdutosFilter(filters.FilterSet):
+class ProdutoFilter(filters.FilterSet):
     nome = filters.CharFilter(lookup_expr='icontains')
 
     class Meta:
-        model = Produtos
+        model = Produto
         fields = ['nome']
-
-
-
-
-class ListaFilter(filters.FilterSet):
-    nome = filters.CharFilter(lookup_expr='icontains')
-
-    class Meta:
-        model = Lista
-        fields = ['nome']
-
-
-
-
-class Lista_ProdutosFilter(filters.FilterSet):
-    nome = filters.CharFilter(lookup_expr='icontains')
-
-    class Meta:
-        model = Lista_Produtos
-        fields = ['nome', 'cod_prod', 'cod_list']
-
 
 
 
@@ -47,4 +25,26 @@ class Categoria_ProdutoFilter(filters.FilterSet):
 
     class Meta:
         model = Categoria_Produto
-        fields = ['nome', 'cod_cat', 'cod_prod']
+        fields = ['nome', 'categoria', 'produto']
+
+
+# class ListaFilter(filters.FilterSet):
+#     nome = filters.CharFilter(lookup_expr='icontains')
+
+#     class Meta:
+#         model = Lista
+#         fields = ['nome']
+
+
+
+
+# class Lista_ProdutosFilter(filters.FilterSet):
+#     nome = filters.CharFilter(lookup_expr='icontains')
+
+#     class Meta:
+#         model = Lista_Produtos
+#         fields = ['nome', 'cod_prod', 'cod_list']
+
+
+
+
