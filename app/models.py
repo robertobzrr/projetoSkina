@@ -7,12 +7,15 @@ class Categoria(models.Model):
     nome = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.nome}"
+        return self.nome
 
 
 
 class Produto(models.Model):
     nome = models.CharField(max_length=100)
+    description = models.TextField()
+    image_url = models.URLField(max_length=1000, blank=True, null=True)
+
 
     def __str__(self):
         return self.nome

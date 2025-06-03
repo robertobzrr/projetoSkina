@@ -17,10 +17,12 @@ class ProdutosSerializer(serializers.ModelSerializer):
 class Categoria_ProdutoSerializer(serializers.ModelSerializer):
     categoria = serializers.StringRelatedField()
     produto = serializers.StringRelatedField()
+    description = serializers.CharField(source='produto.description')
+    image_url = serializers.URLField(source='produto.image_url')
 
     class Meta:
         model = Categoria_Produto
-        fields = ['id', 'categoria', 'produto']
+        fields = ['id', 'categoria', 'produto', 'description', 'image_url']
 
 
 
